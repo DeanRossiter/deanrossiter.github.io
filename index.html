@@ -7,68 +7,81 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Dean Rossiter</h1>
-    <p>Administration and Software Professional</p>
-
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>
-        I’m currently studying a Bachelor of Information Technology in Software Engineering.
-        I have experience in administration, research, customer service, and technical problem-solving.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <article>
-        <h3>STEMM Lab Mobile App</h3>
-        <p>
-          A mobile app prototype for classroom STEMM activities, including team-based activities,
-          video uploads, comments, ratings, and Firestore data storage.
-        </p>
-        <p><strong>Tech:</strong> React Native, Expo, Firebase</p>
-      </article>
-
-      <article>
-        <h3>Text Adventure Game</h3>
-        <p>
-          A C++ text adventure game inspired by Zork, using rooms, items, commands, and object-oriented design.
-        </p>
-        <p><strong>Tech:</strong> C++</p>
-      </article>
-
-      <article>
-        <h3>Word Neighbour Finder</h3>
-        <p>
-          A Python program that processes a large text file, counts unique words, and finds neighbouring words
-          that differ by one letter.
-        </p>
-        <p><strong>Tech:</strong> Python, hash tables, sorting algorithms</p>
-      </article>
-    </section>
+    <header>
+        <h1>Dean Rossiter</h1>
+        <p>Makes games, likes philosophy</p>
+    </header>
 
     <section id="resume">
-      <h2>Resume</h2>
-      <p>
+        <h2>Resume</h2>
+        <p>
         <a href="assets/resume.pdf">Download my resume</a>
-      </p>
+        </p>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a>deansbear@gmail.com</a></p>
-      <p>GitHub: <a href="#">Your GitHub link</a></p>
-    </section>
-  </main>
+    <main>
+        <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a>deansbear@gmail.com</a></p>
+        <p>GitHub: <a href="#">Your GitHub link</a></p>
+        </section>
+
+        <section>
+            <h2>About</h2>
+            <p>
+                I’m currently studying a Bachelor of Software Engineering.
+                Most of the below projects were assessments as part of my degree, but some are personal projects.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <article>
+                <h3>STEMM Lab Mobile App</h3>
+                <p>
+                    STEMM Lab provides a way to digitize classroom workbooks. 
+                    The app was designed to allow students to quickly join a classroom and a team and to work through a digital workbook using the phone's sensors.
+                    I developed this app in conjunction with a another student. 
+                </p>
+                <p><strong>Tech:</strong> React Native, Expo, Firebase</p>
+            </article>
+
+            <article>
+                <h3>ZOOrk Text Adventure Game</h3>
+                <p>
+                    A C++ text adventure game inspired by Zork, using rooms, items, commands, and object-oriented design.
+                    The game is feature complete but is missing content - it was developed for an assessment and additional content wouldn't demonstrate additional learning.
+                </p>
+                <p><strong>Tech:</strong> C++, OOP</p>
+            </article>
+
+            <article>
+                <h3>Word Neighbour Finder</h3>
+                <p>
+                    A Python program that processes a large text file, counts unique words, and finds neighbouring words that differ by one letter.
+                </p>
+                <p><strong>Tech:</strong> Python, hash tables, sorting algorithms</p>
+            </article>
+
+            <article>
+                <h3>Laundry Monitor</h3>
+                <p>
+                    A Python program that monitors a smart plug's power readings and figured out when the attached washer or dryer is operating.
+                    Sends a push notification to the owner when the appliance finishes a cycle. 
+                </p>
+                <p><strong>Tech:</strong> Python, third-party integrations</p>
+            </article>
+
+            <article>
+                <h3>Shipped</h3>
+                <p>
+                    A WIP logistics game developed in Unity. This is a large project that I work on in my spare time.
+                </p>
+                <p><strong>Tech:</strong> C#, Unity </p>
+            </article>
+        </section>
+
+    </main>
 </body>
 </html>
