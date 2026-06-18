@@ -39,10 +39,41 @@ async function copyToClipboard(text) {
         <section>
             <h2>About Me</h2>
             <p>
-                I’m currently studying a Bachelor of Software Engineering. I make games and fiddle with gadgets. I have generally nerdy interests and enjoy philosphy and learning. 
+                I’m currently studying a Bachelor of Software Engineering. I have generally nerdy interests, like game design, philosphy, and learning. 
             </p>
+
+            <h3>My Time in Politics<h3>
             <p>
+                I have 5 years experience working in government. First as an Electorate Officer, then as a Parliamentary Advisor. The things I enjoyed about politics, are the things that touch philosphy and game design.
+                Politics has a lot more in common with game design than you might think. Both games and societies are systems where agents interact with each other using a rule based framework. Agents in these systems react to incentives, find exploits, and develop a meta-games.
+                I enjoy finding truth and value debate as a means to this. Exploring political ideas is often an extension of exploring philisophical ideas. It's interesting in a detached way. 
+                However, politics <em>in practice</em> is much less about truth and exploration and is much more about proselytization and zeal. I don't enjoy being an idea salesman, or swimming in a water where spin and mistruth are the norm. That's why I'm leaving politics for programming.
+            </p>
+
+            <h3>Programming and Game Design<h3>
+            <p>
+                I have no professional experience in either of these areas, but I like to think I've a decent grasp of both. 
+            </p>
+
+            <h3>The Value of Philosphy<h3>
+            <p>
+                When applying for a job, I often question how employers will view my philosphy degree. Philosophy is sometimes seen as one of those <em>useless liberal arts degrees</em> that seemingly involves no practical skills and confers no practical abilities. If you're an employer, or someone who has this view of philosophy, this section is for you. 
+                Philosophy, as an academic subject, is best understood as the study of how to <em>think well</em>. Philosophy graduates have analytical skills that help them improve at everything they do. They tend to be good at identifying problems, developing solutions, and weighing options across domains. 
+                It may not be <em>specificially useful</em> to be able to explain "Nietzche's Slave/Master morality", but I do find it immensely <em>generally useful</em> to have a mental toolbox that equips me take complex, abstract ideas, and organize and reform them effectively.
+                This toolbox is particularly applicable to software work, where much of the task is about taking abstract ideas and concepts and converting them into a logical system. Computing, from if-statements down to logic gates, is an implentation of analytic logic. 
                 
+                If that still sounds a bit impractical, consider the following. There are practical skills earned through a philosophy education as well. Philosophy graduates have demonstrated an ability to communicate well and have spent a lot of time writing papers that conveying prescise or complex ideas. 
+                Lastly, it might be interesting to consider that students of philosophy tend to perform better on standardized tests than most other majors. They consistently score among the top 5 majors on the SAT and LSAT. For the LSAT in particular, philosphy is often the highest scoring major, which makes sense.
+                The LSAT is a law exam, where students who can marshal evidence, identify relevant information, and make arguements are likely to excel. Hopefully, this text here is a demonstration of this kind of skill in action. I'm answering the question "what is the value of philosophy?" which is itself, a philisophical endevour. 
+
+                Lastly, and probably most importantly, philosophy demonstrates a posture of <em>curiosity</em> toward the world.
+                <p class ="quote">
+                    "As when men come to the Olympic Games, some to win glory by the strength and speed of their bodies, others to make profit by buying and selling, 
+                    but there is a certain class, and that the noblest, who seek neither applause nor gain, but come to see and observe what is done and how it is done; 
+                    so we have come into this life from another life and nature, and while some are slaves to glory, others to money, there are a few who, counting all else as nothing, 
+                    devote themselves to the contemplation of nature. These men call themselves lovers of wisdom, that is, philosophers."
+                </p>
+                I will never regret my study of philosophy or how it's helped shape me as a person and I hope that reading this has helped you understand why I feel that way. 
             </p>
         </section>
 
@@ -54,21 +85,32 @@ async function copyToClipboard(text) {
 
             <article>
                 <h3>Laundry Monitor</h3>
-                <p>
-                    A Python program that monitors a smart plug's power readings and figured out when the attached washer or dryer is operating. Sends a push notification to the owner when the appliance finishes a cycle. 
-                </p>
-                <p>
+                <p class="description">
+                    A Python program that monitors a smart plug's power readings and figured out when the attached washer or dryer is operating. The script sends a push notification to the owner's phone when the appliance finishes a cycle.
                     This script runs on a Raspberry Pi Zero that has no interface. I've implemented the setup by flashing a preconfigured OS, then configuring the device remotely via SSH.    
+                </p>
+                <p class="reflection">
+                    I made this thing because I wanted a project to work on. It was a solution in search of a problem, which is why it's overengineered.
+                    The practical upshot of this solution is that I don't need to set a timer on my phone when I put my laundry in the machine. I'll just be notified when it's done. The plug has no way to tell who is using the machine, so I get the notification when my wife does laundry too. 
+                    This sounds like a minimally helpful device, but it's actually <em>brilliant</em>. I love this thing. I'm the kind of person who can get distracted from the mundane and become obssessed on the task they're working on. I will forget to set a timer and 4 hours pass without me thinking once about my laundry. This li'l guy is a lifesaver.
+                    In future, I'll probably roll this into a Home Assistant implementation, but I enjoyed the experience and learned a lot.  
                 </p>
                 <p><strong>Used:</strong> Python, third-party integrations, remote access, CLI</p>
             </article>
 
             <article>
                 <h3>Shipped WIP</h3>
-                <p>
-                    A space logistics game developed in Unity. This is a large project that I work on in my spare time.
+                <p class="description">
+                    A space logistics game developed in Unity. Players begin with a couple planets and ships and have to design routes to move items around and earn income. 
+                    As the game progresses, the player will take advantage of randomized bonuses and make more complex systems that are more profitable.
                 </p>
-                <p><strong>Used:</strong> C#, Unity, OOP </p>
+                <p>
+                    This is a large project that I work on in my spare time. I started making this game with my brother, who is an experienced professional software developer who makes games as a hobby. 
+                    Almost all his code has been replaced now, but a lot of the structure of the program was based on his input. You can see I use some of his libraries too.
+                    Don't tell my uni, but I probably learned more from a couple months working with my bro on this game than I did in a whole year of study. 
+                    I'm reluctant to put a creative work like this into a public repo, but I'd be happy to show it off privately. 
+                </p>
+                <p><strong>Used:</strong> C#, Unity, OOP, Git Collaboration</p>
             </article>
         </section>
 
@@ -80,21 +122,21 @@ async function copyToClipboard(text) {
 
             <article>
                 <h3>STEMM Lab Mobile App</h3>
-                <p>
+                <p class="description">
                     STEMM Lab provides a way to digitize classroom workbooks. The app was designed to allow students to quickly join a classroom and a team and to work through a digital workbook using the phone's sensors.
                 </p>
-                <p>
+                <p class="info">
                     I developed this app in conjunction with a another student. 
                 </p>
-                <p><strong>Used:</strong> React Native, Expo, Firebase</p>
+                <p><strong>Used:</strong> React Native, Expo, Firebase, Git Collaboration</p>
             </article>
 
             <article>
                 <h3>ZOOrk Text Adventure Game</h3>
-                <p>
+                <p class="description">
                     A C++ text adventure game inspired by Zork, using rooms, items, commands, and object-oriented design.
                 </p>
-                <p>
+                <p class="reflection">
                     The game is feature complete but is missing content - it was developed for an assessment and additional content wouldn't demonstrate additional learning.
                 </p>
                 <p><strong>Used:</strong> C++, OOP</p>
@@ -102,10 +144,10 @@ async function copyToClipboard(text) {
 
             <article>
                 <h3>Word Neighbour Finder</h3>
-                <p>
+                <p class="description">
                     Python scripts that processes a large text file, stores unique words, counts duplicates, and finds neighbouring words that differ by one letter.
                 </p>
-                <p>
+                <p class="info">
                     You can view it <a href="https://colab.research.google.com/drive/1Uym8_KR79I0eBhbQk2NneN7C86PTlNGj?usp=sharing">here</a>
                 </p>
                 <p><strong>Used:</strong> Python, hash tables, sorting algorithms</p>
