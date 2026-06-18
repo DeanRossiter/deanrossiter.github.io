@@ -6,6 +6,19 @@
   <title>Dean Rossiter</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
+<script>
+async function copyToClipboard(text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        alert("Copied!");
+    } catch (err) {
+        console.error("Copy failed:", err);
+    }
+}
+</script>
+
+
 <body>
     <header>
         <h1>Dean Rossiter</h1>
@@ -13,22 +26,24 @@
     </header>
 
     <section id="resume">
-        <p>
-        <a href="assets/resume.pdf">My Resume</a>
-        </p>
+
     </section>
 
     <main>
-        <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a>deansbear@gmail.com</a></p>
-        <p><a href="https://github.com/DeanRossiter">GitHub</a></p>
+        <section id="links">
+            <p><a href="assets/resume.pdf">Resume</a></p>
+            <p class="copyable" onclick="copyToClipboard('deansbear@gmail.com')">deansbear@gmail.com</p>
+            <p><a href="https://github.com/DeanRossiter">GitHub</a></p>
         </section>
 
         <section>
             <h2>About Me</h2>
             <p>
-                I’m currently studying a Bachelor of Software Engineering.
+                I’m currently studying a Bachelor of Software Engineering. I make games and fiddle with gadgets and stuff. 
+            </p>
+
+            <p>
+                I’m currently studying a Bachelor of Software Engineering. I make games and fiddle with gadgets and stuff. 
             </p>
         </section>
 

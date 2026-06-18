@@ -35,3 +35,11 @@ article {
 a {
   color: #005fcc;
 }
+
+#copyable {
+    cursor: pointer;
+}
+
+#copyable:hover {
+    text-decoration: underline;
+}
