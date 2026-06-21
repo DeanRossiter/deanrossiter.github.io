@@ -8,71 +8,135 @@
 </head>
 
 <script>
-async function copyToClipboard(text) {
-    try {
-        await navigator.clipboard.writeText(text);
-        alert("Copied!");
-    } catch (err) {
-        console.error("Copy failed:", err);
+    function showToast(message, x, y) {
+        const toast = document.createElement('div');
+        toast.textContent = message;
+        toast.style.cssText = `
+            position: fixed;
+            left: ${x}px;
+            top: ${y}px;
+            background: #35bdb4;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 1000;
+            animation: slideInFadeOut 2.5s ease forwards;
+            pointer-events: none;
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
     }
-}
+
+    async function copyToClipboard(event, text) {
+        try {
+            await navigator.clipboard.writeText(text);
+            showToast("Copied!", event.clientX, event.clientY);
+        } catch (err) {
+            console.error("Copy failed:", err);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.reflection-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const reflectionBox = this.closest('.reflection-box');
+                const reflection = this.nextElementSibling;
+                reflection.classList.toggle('expanded');
+                reflectionBox.classList.toggle('expanded');
+            });
+        });
+    });
 </script>
 
 
 <body>
     <header>
-        <h1>Dean Rossiter</h1>
-        <p>Makes games, likes philosophy</p>
-        <section id="links">
-            <p><a href="assets/resume.pdf">Resume</a></p>
-            <p class="copyable" onclick="copyToClipboard('deansbear@gmail.com')">deansbear@gmail.com</p>
-            <p><a href="https://github.com/DeanRossiter">GitHub</a></p>
-        </section>
+        <div id="header-left">
+            <h1>Dean Rossiter</h1>
+            <section id="links">
+                <li><a href="assets/resume.pdf">Resume</a></li>
+                <li class="copyable" onclick="copyToClipboard(event, 'deansbear@gmail.com')">deansbear@gmail.com</li>
+                <li><a href="https://github.com/DeanRossiter">GitHub</a></li>
+            </section>
+        </div>
+        <img src="assets/Profile.jfif" alt="Profile" id="profile-pic">
     </header>
 
     <main>
         <section>
-            <h2>About Me</h2>
+            <h2>Welcome!</h2>
             <p>
-                I’m currently studying a Bachelor of Software Engineering. I have generally nerdy interests, like game design, philosphy, and learning. 
-            </p>
-
-            <h3>My Time in Politics</h3>
-            <p>
-                I have 5 years experience working in government. First as an Electorate Officer, then as a Parliamentary Advisor. The things I enjoyed about politics, are the things that touch philosphy and game design.
-                Politics has a lot more in common with game design than you might think. Both games and societies are systems where agents interact with each other using a rule based framework. Agents in these systems react to incentives, find exploits, and develop a meta-games.
-                I enjoy finding truth and value debate as a means to this. Exploring political ideas is often an extension of exploring philisophical ideas. It's interesting in a detached way. 
-                However, politics <em>in practice</em> is much less about truth and exploration and is much more about proselytization and zeal. I don't enjoy being an idea salesman, or swimming in a water where spin and mistruth are the norm. That's why I'm leaving politics for programming.
-            </p>
-
-            <h3>Programming and Game Design</h3>
-            <p>
-                I have no professional experience in either of these areas, but I like to think I've a decent grasp of both. 
-            </p>
-
-            <h3>The Value of Philosphy</h3>
-            <p>
-                When applying for a job, I often question how employers will view my philosphy degree. Philosophy is sometimes seen as one of those <em>useless liberal arts degrees</em> that seemingly involves no practical skills and confers no practical abilities. If you're an employer, or someone who has this view of philosophy, this section is for you. 
-                Philosophy, as an academic subject, is best understood as the study of how to <em>think well</em>. Philosophy graduates have analytical skills that help them improve at everything they do. They tend to be good at identifying problems, developing solutions, and weighing options across domains. 
-                It may not be <em>specificially useful</em> to be able to explain "Nietzche's Slave/Master morality", but I do find it immensely <em>generally useful</em> to have a mental toolbox that equips me take complex, abstract ideas, and organize and reform them effectively.
-                This toolbox is particularly applicable to software work, where much of the task is about taking abstract ideas and concepts and converting them into a logical system. Computing, from if-statements down to logic gates, is an implentation of analytic logic. 
-                
-                If that still sounds a bit impractical, consider the following. There are practical skills earned through a philosophy education as well. Philosophy graduates have demonstrated an ability to communicate well and have spent a lot of time writing papers that conveying prescise or complex ideas. 
-                Lastly, it might be interesting to consider that students of philosophy tend to perform better on standardized tests than most other majors. They consistently score among the top 5 majors on the SAT and LSAT. For the LSAT in particular, philosphy is often the highest scoring major, which makes sense.
-                The LSAT is a law exam, where students who can marshal evidence, identify relevant information, and make arguements are likely to excel. Hopefully, this text here is a demonstration of this kind of skill in action. I'm answering the question "what is the value of philosophy?" which is itself, a philisophical endevour. 
-
-                Lastly, and probably most importantly, philosophy demonstrates a posture of <em>curiosity</em> toward the world.
-                <p class ="quote">
-                    "As when men come to the Olympic Games, some to win glory by the strength and speed of their bodies, others to make profit by buying and selling, 
-                    but there is a certain class, and that the noblest, who seek neither applause nor gain, but come to see and observe what is done and how it is done; 
-                    so we have come into this life from another life and nature, and while some are slaves to glory, others to money, there are a few who, counting all else as nothing, 
-                    devote themselves to the contemplation of nature. These men call themselves lovers of wisdom, that is, philosophers."
-                </p>
-                I will never regret my study of philosophy or how it's helped shape me as a person and I hope that reading this has helped you understand why I feel that way. 
+                This is my personal website. I made it to share my projects and experience with potential employers and to let them know a bit more about me. 
+                I hope you find something interesting here, and if you have any questions or just want to chat, feel free to reach out!
             </p>
         </section>
 
-        <section id="personal projects">
+        <section id="professional-achievements">
+            <h2>Professional Projects</h2>
+            <p>
+                These are projects that I've worked on in my professional capacity.
+            </p>
+
+            <article>
+                <h3>Emergency Powers Safeguards Legislation Amendment Bill 2021</h3>
+                <p class="description">
+                    I drafted this piece of legislation as part of my work as a Parliamentary Advisor. The bill was designed to implement safeguards on the use of emergency powers in Victoria and was drafted in response to the Victorian government's use of emergency powers during the COVID-19 pandemic.
+                    The bill requires that uses of emergency powers be ratified by the Parliament as soon as practicable, and outlines a set of rules that require the government to continue to convene the Parliament. The bill also included criminal penalties for the misuse of emergency powers.  
+                </p>
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        As a minor party, we didn't have many opportunities to put forward legislation and we had practically no chance of getting anything passed. It would have been easy to make a silly piece of legislation that makes a big statement, but would be terrible in practice. 
+                        However, this bill was carefully considered and well crafted such that would be effective if implemented while still being difficult to for the government to oppose optically. The bill actually passed the second reading stage, which is an enormous achievement for a private member's bill.
+                        Passing this stage means that the bill was debated in the Parliament and, despite the fact that the government spoke against the bill, they voted in favor of it on the record. 
+                        I'm personally quite proud of this bill. I was able to use my position and influence to put forward genuine legislation that would proctect the democractic and civil rights of Victorians.
+                    </p>
+                </div>
+                <p class="info">
+                    You can view it <a href="https://content.legislation.vic.gov.au/sites/default/files/bills/591PM98bi1.pdf">here</a>
+                </p>
+                <p><strong>Used:</strong> Legal philosophy, policy development, document preparation, political strategy</p>
+            </article>
+
+            <article>
+                <h3>Database Cleaning</h3>
+                <p class="description">
+                    While working for Senator Leyonhjelm, we used a CRM to manage our contacts and communications. The database had been neglected for quite a while and a lot of our records were innaccurate, duplicated or dead records.
+                    When we sent email communications, we paid per contact, so emailing duplicates or dead records were expensive. I took the initiative to clean up the database by merging duplicates, removing dead records, and updating contact information. This improved our communication efficiency and reduced costs.                     
+                </p>
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        At the time, I didn't think much of doing this. It just seemed obvious that our data base was a mess and that someone should clean it up. It was a small organization (about 7 staff) and I don't think anyone had the experience to know what to do.
+                        I didn't have the experience either, but I'm technilogically minded and was eager to mess around in spreadsheets. The CRM software we used did not have great tools for achieving this, so it involved pulling the records out the database, running duplication checks in excel, remerging records into the CRM, and removing the old records. 
+                        Lots of back-ups and double-checks, but ultimately the changes were successful and there were no issues. In hindsight, this was a big improvement and we should have cleaned the database up a long time ago.   
+                    </p>
+                </div>
+                <p><strong>Used:</strong> CRM software, excel, data analysis</p>
+            </article>
+
+            <article>
+                <h3>Membership Atritition</h3>
+                <p class="description">
+                    While working for Senator Leyonhjelm, I was tasked with improving the automatic emails we sent through our CRM software. One of these set of emails was the membership renewal email set. 
+                    I knew a lot of people didn't open their emails, so it made sense to check how many of these were opened too. In this case, we were losing a huge portion of paid members because they simply never saw the renewal email. 
+                </p>
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        I investigated the options available to have automatic renewals and found that integrating annual renewals into the CRM would be difficult and likely problematic, but integrating monthly renweals was a simple plugin. 
+                        Most businesses operate with both monthly and annual memebership options and it seemed obvious that we would implement a similar model. 
+                        Ultimately, the party decided that it preferred the annual membership structure without the option for automatic renewal. I don't think this was an active decision, but rather, that underlying party bureaucracy had inadvertantly snuffed the issue.
+                        It's ironic that a party staunchly opposed to wasteful bureaucracy is itself prone to the exact same issues it seems to remedy. 
+                    </p>
+                </div>
+                <p><strong>Used:</strong> CRM software, data analysis, business strategy</p>
+            </article>
+
+        </section>
+        
+        <section id="personal-projects">
             <h2>Personal Projects</h2>
             <p>
                 These are projects that I've been working on in my own time. 
@@ -84,32 +148,39 @@ async function copyToClipboard(text) {
                     A Python program that monitors a smart plug's power readings and figured out when the attached washer or dryer is operating. The script sends a push notification to the owner's phone when the appliance finishes a cycle.
                     This script runs on a Raspberry Pi Zero that has no interface. I've implemented the setup by flashing a preconfigured OS, then configuring the device remotely via SSH.    
                 </p>
-                <p class="reflection">
-                    I made this thing because I wanted a project to work on. It was a solution in search of a problem, which is why it's overengineered.
-                    The practical upshot of this solution is that I don't need to set a timer on my phone when I put my laundry in the machine. I'll just be notified when it's done. The plug has no way to tell who is using the machine, so I get the notification when my wife does laundry too. 
-                    This sounds like a minimally helpful device, but it's actually <em>brilliant</em>. I love this thing. I'm the kind of person who can get distracted from the mundane and become obsessed with the task I'm working on. I will forget to set a timer and 4 hours pass without me thinking once about my laundry. This li'l guy is a lifesaver.
-                    In future, I'll probably roll this into a Home Assistant implementation, but I enjoyed the experience and learned a lot.  
-                </p>
+                <img src="assets/laundry-script-small.png">
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        I made this thing because I wanted a project to work on. It was a solution in search of a problem, which is why it's overengineered.
+                        The practical upshot of this solution is that I don't need to set a timer on my phone when I put my laundry in the machine. I'll just be notified when it's done. The plug has no way to tell who is using the machine, so I get the notification when my wife does laundry too. 
+                        This sounds like a minimally helpful device, but it's actually <em>brilliant</em>. I love this thing. I'm the kind of person who can get distracted from the mundane and become obsessed with the task I'm working on. I will forget to set a timer and 4 hours pass without me thinking once about my laundry. This li'l guy is a lifesaver.
+                        In future, I'll probably roll this into a Home Assistant implementation, but I enjoyed the experience and learned a lot.  
+                    </p>
+                </div>
                 <p><strong>Used:</strong> Python, third-party integrations, remote access, CLI</p>
             </article>
-
             <article>
                 <h3>Shipped WIP</h3>
                 <p class="description">
                     A space logistics game developed in Unity. Players begin with a couple planets and ships and have to design routes to move items around and earn income. 
                     As the game progresses, the player will take advantage of randomized bonuses and make more complex systems that are more profitable.
                 </p>
-                <p>
-                    This is a large project that I work on in my spare time. I started making this game with my brother, who is an experienced professional software developer who makes games as a hobby. 
-                    Almost all his code has been replaced now, but a lot of the structure of the program was based on his input. You can see I use some of his libraries too.
-                    Don't tell my uni, but I probably learned more from a couple months working with my bro on this game than I did in a whole year of study. 
-                    I'm reluctant to put a creative work like this into a public repo, but I'd be happy to show it off privately. 
-                </p>
+                <img src="assets/shipped-demo.gif">
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        This is a large project that I work on in my spare time. I started making this game with my brother, who is an experienced professional software developer who makes games as a hobby. 
+                        Almost all his code has been replaced now, but a lot of the structure of the program was based on his input. You can see I use some of his libraries too.
+                        Don't tell my uni, but I probably learned more from a couple months working with my bro on this game than I did in a whole year of study. 
+                        I'm reluctant to put a creative work like this into a public repo, but I'd be happy to show it off privately. 
+                    </p>
+                </div>
                 <p><strong>Used:</strong> C#, Unity, OOP, Git Collaboration</p>
             </article>
         </section>
 
-        <section id="academic projects"></section>
+        <section id="academic-projects">
             <h2>Academic Projects</h2>
             <p>
                 These are projects that I've completed as part of my bachelor. 
@@ -120,10 +191,18 @@ async function copyToClipboard(text) {
                 <p class="description">
                     STEMM Lab provides a way to digitize classroom workbooks. The app was designed to allow students to quickly join a classroom and a team and to work through a digital workbook using the phone's sensors.
                 </p>
+                <img src="assets/app-demo.png" style="max-width: 25%;">
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        This is my biggest engagement with JS and app development. The actual code here is probably terrible because I was learning most of it by doing it. 
+                        I do wish the concept for the app was a more engaging, but we had to work to a specification. I learned very quickly from this project and am proud of the final product. 
+                    </p>
+                </div>
                 <p class="info">
                     I developed this app in conjunction with a another student. 
                 </p>
-                <p><strong>Used:</strong> React Native, Expo, Firebase, Git Collaboration</p>
+                <p><strong>Used:</strong> JS, React Native, Expo, Firebase, Git Collaboration</p>
             </article>
 
             <article>
@@ -131,9 +210,14 @@ async function copyToClipboard(text) {
                 <p class="description">
                     A C++ text adventure game inspired by Zork, using rooms, items, commands, and object-oriented design.
                 </p>
-                <p class="reflection">
-                    The game is feature complete but is missing content - it was developed for an assessment and additional content wouldn't demonstrate additional learning.
-                </p>
+                <img src="assets/ZOOrk-demo.png">
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        The game is feature complete but is missing content. It was developed for an assessment and additional content wouldn't demonstrate additional learning.
+                        I'm pretty happy with how this turned out and if I ever get time, I might go back and fill in the story. 
+                    </p>
+                </div>
                 <p><strong>Used:</strong> C++, OOP</p>
             </article>
 
@@ -142,11 +226,67 @@ async function copyToClipboard(text) {
                 <p class="description">
                     Python scripts that processes a large text file, stores unique words, counts duplicates, and finds neighbouring words that differ by one letter.
                 </p>
+                <img src="assets/word-count-demo.gif">
+                <div class="reflection-box">
+                    <button class="reflection-toggle"></button>
+                    <p class="reflection">
+                        Sorting algorithms and data structures are probably not something I'll spend much time actually writing, but I do find the underlying understanding of time complexity helps me quickly evaluate the efficiency of different approaches to a problem.
+                    </p>
+                </div>
                 <p class="info">
                     You can view it <a href="https://colab.research.google.com/drive/1Uym8_KR79I0eBhbQk2NneN7C86PTlNGj?usp=sharing">here</a>
                 </p>
                 <p><strong>Used:</strong> Python, hash tables, sorting algorithms</p>
             </article>
+        </section>
+
+        <section>
+            <h2>About Me</h2>
+            <p>
+                I’m currently studying a Bachelor of Software Engineering. I have a background in politics and philosophy, but I’m looking to transition into programming and/or game design. 
+            </p>
+
+            <h3>My Time in Politics</h3>
+            <p>
+                I have 5 years experience working in government. First as an Electorate Officer, then as a Parliamentary Advisor. The things I enjoyed about politics are the things that touch philosphy and game design.
+            </p>
+            <p>                
+                I enjoy finding truth and I value debate as a means to this. Exploring political ideas is often an extension of exploring philisophical ideas. It's interesting in a detached way. 
+                However, politics <em>in practice</em> is much less about truth and exploration and is much more about proselytization and zeal. I don't enjoy being an idea salesman, or swimming in a water where spin and mistruth are the norm. That's why I'm leaving politics for programming.
+            </p> 
+            <p>
+                The connection between politics and game design might not be immediately obvious, but it's deeper than you'd expect. 
+                Both games and societies are systems where agents interact with each other using a rule based framework. Agents in these systems react to incentives, find exploits, and develop a meta-game.
+                Designing good rules and systems is a shared challenge between politics and game design. 
+            </p>
+
+            <h3>Programming and Game Design</h3>
+            <p>
+                Making games feels like a two layered puzzle. In the first layer you need to figure out what the game needs and in the second layer you need to figure out how to implement it. 
+            </p>
+            <p>
+                I'm yet to publish anything in this space but the majority of my experience in programming has come from this. This makes it a bit difficult to present my expererience on a resume, but I've spent hundreds of hours working on projects. 
+            </p>
+
+            <h3>Philosophy</h3>
+            <p>
+                When applying for a job I often question how employers will view my philosophy degree. Philosophy is sometimes seen as one of those <em>useless liberal arts degrees</em> that seemingly confers no practical skills or abilities. If you're an employer, or someone who has this view of philosophy, this section is for you. 
+            </p> 
+            <p>
+                Philosophy, as an academic subject, is best understood as the study of how to <em>think well</em>. Philosophy graduates have analytical skills that help them improve at everything they do. They tend to be good at identifying problems, developing solutions, and weighing options across domains. 
+                It may not be <em>specificially useful</em> to be able to explain "Nietzche's Slave/Master morality", but I do find it immensely <em>generally useful</em> to have a mental toolbox that equips me take complex, abstract ideas, and organize and reform them effectively.
+                This toolbox is particularly applicable to software work, where much of the task is about taking abstract ideas and concepts and converting them into a logical system. All the way from if-statements down to logic gates, computing is an implentation of analytic logic. 
+            </p> 
+            <p>
+                If that still sounds a bit impractical, rest assured, there are practical skills earned through a philosophy education as well. Philosophy graduates have spent a lot of time writing papers that convey prescise or complex idea and have demonstrated written communication abilities. 
+                Lastly, it might be interesting to consider that students of philosophy tend to perform better on standardized tests than most other majors. They consistently score among the top 5 majors on the SAT and LSAT. For the LSAT in particular, philosphy is often the highest scoring major, which makes sense.
+                The LSAT is a law exam, where students who can marshal evidence, identify relevant information, and make arguements are likely to excel. Hopefully, this text here is a demonstration of this kind of skill in action. I'm answering the question "what is the value of philosophy?" which is itself, a philisophical endevour. 
+            </p>
+            <p>
+                Lastly, and probably most importantly, philosophy demonstrates a posture of <em>curiosity</em> toward the world.
+                I will never regret my study of philosophy or how it's helped shape me as a person and I hope that reading this has helped you understand why I would feel that way. 
+                </p>
+            </p>
         </section>
     </main>
 </body>
