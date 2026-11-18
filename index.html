@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dean Rossiter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -15,8 +18,9 @@
             position: fixed;
             left: ${x}px;
             top: ${y}px;
-            background: #35bdb4;
+            background: #D6409F;
             color: white;
+            font-family: 'Share Tech Mono', monospace;
             padding: 12px 20px;
             border-radius: 4px;
             font-size: 14px;
@@ -54,11 +58,11 @@
     <header>
         <div id="header-left">
             <h1>Dean Rossiter</h1>
-            <section id="links">
+            <ul id="links">
                 <li><a href="assets/resume.pdf">Resume</a></li>
                 <li><a href="https://github.com/DeanRossiter">GitHub</a></li>
                 <li class="copyable" onclick="copyToClipboard(event, 'deansbear@gmail.com')">deansbear@gmail.com</li>
-            </section>
+            </ul>
         </div>
         <img src="assets/Profile.jfif" alt="Profile" id="profile-pic">
     </header>
@@ -70,6 +74,54 @@
                 This is my personal website. I made it to share my projects and experience with potential employers and to let them know a bit more about me. 
                 I hope you find something interesting here, and if you have any questions or just want to chat, feel free to reach out!
             </p>
+        </section>
+
+        <section id="triangulation">
+            <h2>Featured: Triangulation</h2>
+            <p>
+                My first finished, published game. You can play it right now in your browser.
+            </p>
+
+            <article>
+                <h3>Triangulation</h3>
+                <p class="description">
+                    Triangulation is a word-association game styled as a hacking terminal. Your mission is to extract a <strong data-clue="target">target file</strong> from a board of sixteen words by entering two keys, each a single English word.
+                    The opposing agent, <strong data-clue="warden">Warden</strong>, looks at each key on its own and locks the file most closely associated with it.
+                    Your agent, <strong data-clue="both">Ferret</strong>, reads both keys together as a phrase and grabs the file closest to the whole thing, but it can't touch anything Warden has locked.
+                    So the challenge is to find two words that point to the target together without pointing to it on their own.
+                </p>
+
+                <div class="tri-board" aria-label="Example Triangulation board">
+                    <div class="tile">Tiger</div>
+                    <div class="tile locked" data-clue="1">Galaxy</div>
+                    <div class="tile">Piano</div>
+                    <div class="tile">Castle</div>
+                    <div class="tile">River</div>
+                    <div class="tile">Comet</div>
+                    <div class="tile target" data-clue="both">Rocket</div>
+                    <div class="tile">Lantern</div>
+                    <div class="tile">Desert</div>
+                    <div class="tile locked" data-clue="2">Anchor</div>
+                    <div class="tile">Mirror</div>
+                    <div class="tile">Volcano</div>
+                    <div class="tile">Engine</div>
+                    <div class="tile">Harbor</div>
+                    <div class="tile">Forest</div>
+                    <div class="tile">Crater</div>
+                </div>
+
+                <ul class="terminal" aria-label="Example round">
+                    <li><span class="speaker">SYSTEM:</span> The target is <span data-clue="target">ROCKET</span></li>
+                    <li><span class="speaker">SYSTEM:</span> KEY 1: <span data-clue="1">SPACE</span> &nbsp; KEY 2: <span data-clue="2">SHIP</span></li>
+                    <li class="voice-defender"><span class="speaker">WARDEN:</span> Locking <span data-clue="1">GALAXY</span> and <span data-clue="2">ANCHOR</span></li>
+                    <li class="voice-attacker"><span class="speaker">FERRET:</span> SPACE SHIP? I think they want <span data-clue="both">ROCKET</span>.</li>
+                    <li><span class="speaker">SYSTEM:</span> OPERATION <span data-clue="both">SUCCESS</span></li>
+                </ul>
+
+                <a class="play-button" href="https://playtriangulation.dev" target="_blank" rel="noopener">&gt; Play at playtriangulation.dev</a>
+
+                <p><strong>Used:</strong> JavaScript, Web Components, Bootstrap, game design</p>
+            </article>
         </section>
 
         <section id="professional-achievements">
@@ -240,7 +292,7 @@
             </article>
         </section>
 
-        <section>
+        <section id="about">
             <h2>About Me</h2>
             <p>
                 I’m currently studying a Bachelor of Software Engineering. I have a background in politics and philosophy, but I’m looking to transition into programming and/or game design. 
@@ -265,7 +317,7 @@
                 Making games feels like a two layered puzzle. In the first layer you need to figure out what the game needs and in the second layer you need to figure out how to implement it. 
             </p>
             <p>
-                I'm yet to publish anything in this space but the majority of my experience in programming has come from this. This makes it a bit difficult to present my experience on a resume, but I've spent hundreds of hours working on projects. 
+                The majority of my experience in programming has come from making games, and I've spent hundreds of hours working on projects. My first published game, <a href="https://playtriangulation.dev">Triangulation</a>, is now live and free to play. 
             </p>
 
             <h3>Philosophy</h3>
@@ -290,4 +342,4 @@
         </section>
     </main>
 </body>
-</html>
+</html>
